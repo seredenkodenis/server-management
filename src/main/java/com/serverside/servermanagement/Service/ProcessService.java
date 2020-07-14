@@ -28,7 +28,7 @@ public class ProcessService {
     }
     public void addTime(Proc procer) throws IOException {
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("bash","-c","ps -p "+procer.getPid()+" -o %time");
+        processBuilder.command("bash","-c","ps -p "+procer.getPid()+" -o etime=");
         Process process1 = processBuilder.start();
         StringBuilder output = new StringBuilder();
         BufferedReader reader = new BufferedReader(
@@ -38,5 +38,15 @@ public class ProcessService {
         line =  reader.readLine();
         System.out.println(line);
         procer.setUpTime(line);
+    }
+
+    public void refresh(Proc procer){
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command("bash","-c","/home/denis/IdeaProjects/server-management/src/main/resources/scripts/check.sh "+ procer.getPid() + " " + procer.getName());
+        try {
+            processBuilder.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

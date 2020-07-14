@@ -10,7 +10,6 @@ public class Proc {
     Integer pid;
 
     @Id
-    @GeneratedValue
     @Column(name = "PROCESS_NAME")
     public String name;
 
