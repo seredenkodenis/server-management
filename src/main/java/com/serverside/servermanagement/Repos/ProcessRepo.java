@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProcessRepo extends CrudRepository<Proc, String> {
+    Proc findProcByPid(Integer pid);
 }

@@ -19,6 +19,18 @@ public class Proc {
     @Column
     String uptime;
 
+    @Column
+    String author;
+
+    @Column
+    String mem;
+
+    @Column
+    String cpu;
+
+    @Column
+    String vsz;
+
     @OneToMany(mappedBy = "process", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Log> logs;
 
@@ -57,5 +69,51 @@ public class Proc {
         this.uptime = starterTime;
     }
 
+    public String getUptime() {
+        return uptime;
+    }
 
+    public void setUptime(String uptime) {
+        this.uptime = uptime;
+    }
+
+    public List<Log> getLogs() {
+        return logs;
+    }
+
+    public void setLogs(List<Log> logs) {
+        this.logs = logs;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getMem() {
+        return mem;
+    }
+
+    public void setMem(String mem) {
+        this.mem = mem;
+    }
+
+    public String getCpu() {
+        return cpu;
+    }
+
+    public void setCpu(String cpu) {
+        this.cpu = cpu;
+    }
+
+    public String getVsz() {
+        return vsz;
+    }
+
+    public void setVsz(String vsz) {
+        this.vsz = vsz;
+    }
 }

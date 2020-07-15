@@ -46,6 +46,7 @@
         <th scope="col">Name</th>
         <th scope="col">Pid</th>
         <th scope="col">Uptime</th>
+        <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -54,6 +55,10 @@
         <th scope="row" th:text="${process.name}"></th>
         <td th:text="${process.pid}"></td>
         <td th:text="${process.upTime}"></td>
+        <td>
+            <a th:href="@{'/admin/delete/process-delete/' + ${process.pid} }"><button type="button" class="btn btn-danger">Cancel vision</button></a>
+            <a th:href="@{'/admin/checkInfo/process/' + ${process.pid}}"><button type="button" class="btn btn-success">Check info</button></a>
+        </td>
     </tr>
     </tbody>
 </table>

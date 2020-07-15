@@ -49,4 +49,14 @@ public class ProcessService {
             e.printStackTrace();
         }
     }
+
+    public void refreshInfo(Proc procer){
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command("bash","-c","/home/denis/IdeaProjects/server-management/src/main/resources/scripts/refreshAllInfo.sh "+ procer.getPid() + " " + procer.getName());
+        try {
+            processBuilder.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
