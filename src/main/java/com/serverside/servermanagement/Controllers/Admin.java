@@ -74,7 +74,8 @@ public class Admin {
     public String checkSystem(Model model){
         System system = systemRepo.getOne(1);
         systemService.checkAllSystem(system);
-        return "redirect:/admin/process-setter";
+        model.addAttribute("system",system);
+        return "checkSystemInfo";
     }
 
 }
