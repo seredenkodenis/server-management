@@ -20,6 +20,8 @@ public class Service {
 
     @Column
     String status;
+    @Column
+    String email;
 
     public Service() {
     }
@@ -62,5 +64,13 @@ public class Service {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

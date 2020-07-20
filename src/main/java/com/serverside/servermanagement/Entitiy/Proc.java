@@ -31,6 +31,9 @@ public class Proc {
     @Column
     String vsz;
 
+    @Column
+    String email;
+
     @OneToMany(mappedBy = "process", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Log> logs;
 
@@ -115,5 +118,13 @@ public class Proc {
 
     public void setVsz(String vsz) {
         this.vsz = vsz;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
