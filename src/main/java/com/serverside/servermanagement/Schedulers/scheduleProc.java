@@ -3,21 +3,18 @@ package com.serverside.servermanagement.Schedulers;
 import com.serverside.servermanagement.Entitiy.Proc;
 import com.serverside.servermanagement.Repos.ProcessRepo;
 import com.serverside.servermanagement.Service.ProcessService;
+import com.serverside.servermanagement.Mailer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Properties;
 
 @Component
 public class scheduleProc {
     @Autowired
-    private JavaMailSender javaMailSender;
+    private Mailer mailer;
 
     @Autowired
     private ProcessRepo processRepo;
@@ -25,7 +22,7 @@ public class scheduleProc {
     @Autowired
     private ProcessService processService;
 
-    @Scheduled(cron = "0 * * * * *")
+    @Scheduled(cron = "${cronProc}")
     public void checkProc(){
         List<Proc> procList = (List<Proc>) processRepo.findAll();
         for(int i = 0; i < procList.size(); ++i){
@@ -40,24 +37,7 @@ public class scheduleProc {
             String s2 = proc.getEmail();
             if(s2!=null) {
                 if (proc.getEmail().equals("send")) {
-                    JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-                    mailSender.setHost("mail.denis-seredenko.com");
-                    mailSender.setPort(587);
-                    mailSender.setUsername("admin@denis-seredenko.com");
-                    mailSender.setPassword("seredenko302003");
-
-                    Properties props = mailSender.getJavaMailProperties();
-                    props.put("mail.transport.protocol", "smtp");
-                    props.put("mail.smtp.auth", "true");
-                    props.put("mail.smtp.starttls.enable", "true");
-                    props.put("mail.debug", "true");
-
-                    SimpleMailMessage mailMessage = new SimpleMailMessage();
-                    mailMessage.setFrom("admin@denis-seredenko.com");
-                    mailMessage.setTo("denis-seredenko@ukr.net");
-                    mailMessage.setSubject("Process id dead!");
-                    mailMessage.setText("Hi, process with pid: " + procList.get(i).getPid() + " is dead!");
-                    mailSender.send(mailMessage);
+                    mailer.processIsDead("Process is dead",procList.get(i).getPid());
                     proc.setEmail(null);
                     processRepo.save(proc);
                 }
