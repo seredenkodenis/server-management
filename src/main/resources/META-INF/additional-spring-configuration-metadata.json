@@ -1,0 +1,33 @@
+{
+  "properties": [
+    {
+      "name": "mailFrom",
+      "type": "java.lang.String",
+      "description": "Name of email when we send info"
+    },
+    {
+      "name": "ownEmail",
+      "type": "java.lang.String",
+      "description": "Where we are going to send email"
+    },
+    {
+      "name": "cronProc",
+      "type": "java.lang.String",
+      "description": "cron command for processes"
+    },
+    {
+      "name": "cronService",
+      "type": "java.lang.String",
+      "description": "cron command for services"
+    },
+    {
+      "name": "pathToScripts",
+      "type": "java.lang.String",
+      "description": "path to scripts"
+    },
+    {
+      "name": "sudoPass",
+      "type": "java.lang.String",
+      "description": "password of sudo"
+    }
+  ] }
