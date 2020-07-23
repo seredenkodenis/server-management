@@ -3,12 +3,16 @@ package com.serverside.servermanagement.Service;
 import com.serverside.servermanagement.Entitiy.System;
 import com.serverside.servermanagement.Repos.SystemRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
 @Service
 public class SystemService {
+
+    @Autowired
+    private Environment env;
 
     @Autowired
     private SystemRepo systemRepo;
@@ -19,7 +23,7 @@ public class SystemService {
         system.setId(1);
         systemRepo.save(system);
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("bash","-c","/home/denis/IdeaProjects/server-management/src/main/resources/scripts/onceSystem.sh");
+        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "onceSystem.sh");
         try {
             processBuilder.start();
         } catch (IOException e) {
@@ -31,7 +35,7 @@ public class SystemService {
 
     public void checkAllSystem(System system){
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("bash","-c","/home/denis/IdeaProjects/server-management/src/main/resources/scripts/refreshServerInfo.sh");
+        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "refreshServerInfo.sh");
         try {
             processBuilder.start();
         } catch (IOException e) {
