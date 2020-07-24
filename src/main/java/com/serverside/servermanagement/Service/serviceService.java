@@ -19,7 +19,7 @@ public class serviceService {
     }
     public void startService(com.serverside.servermanagement.Entitiy.Service service){
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "startService.sh"+ " " +  service.getName() + env.getProperty("sudoPass"));
+        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "startService.sh"+ " " +  service.getName() +" " + env.getProperty("sudoPass"));
         try {
             processBuilder.start();
         } catch (IOException e) {
@@ -28,7 +28,7 @@ public class serviceService {
     }
     public void stopService(com.serverside.servermanagement.Entitiy.Service service){
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "stopService.sh"+ " " + service.getName() + env.getProperty("sudoPass"));
+        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "stopService.sh"+ " " + service.getName() +" " + env.getProperty("sudoPass"));
         try {
             processBuilder.start();
         } catch (IOException e) {
@@ -37,7 +37,8 @@ public class serviceService {
     }
     public void statusService(com.serverside.servermanagement.Entitiy.Service service){
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "statusService.sh"+  " " + service.getName() + env.getProperty("sudoPass"));
+        System.out.println(env.getProperty("pathToScripts"));
+        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "statusService.sh"+  " " + service.getName() + " " + env.getProperty("sudoPass"));
         try {
             processBuilder.start();
         } catch (IOException e) {
@@ -46,7 +47,7 @@ public class serviceService {
     }
     public void restartService(com.serverside.servermanagement.Entitiy.Service service){
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "restartService.sh"+ " " + service.getName()+ env.getProperty("sudoPass"));
+        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "restartService.sh"+ " " + service.getName()+" " + env.getProperty("sudoPass"));
         try {
             processBuilder.start();
         } catch (IOException e) {
