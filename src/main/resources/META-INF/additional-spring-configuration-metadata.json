@@ -29,5 +29,10 @@
       "name": "sudoPass",
       "type": "java.lang.String",
       "description": "password of sudo"
+    },
+    {
+      "name": "pathToResults",
+      "type": "java.lang.String",
+      "description": "Description for pathToResults."
     }
   ] }

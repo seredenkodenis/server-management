@@ -1,0 +1,61 @@
+Warning: The command '/usr/bin/lwp-request' has been replaced by a script: /usr/bin/lwp-request: Perl script text executable
+Warning: The following processes are using deleted files:
+         Process: /usr/bin/pulseaudio    PID: 1613    File: /memfd:pulseaudio
+         Process: /    PID: 2043    File: /
+         Process: /usr/lib/xorg/Xorg    PID: 2316    File: /memfd:xshmfence
+         Process: /usr/bin/gnome-shell    PID: 2497    File: /home/denis/.local/share/gvfs-metadata/root
+         Process: /usr/bin/pulseaudio    PID: 2510    File: /memfd:pulseaudio
+         Process: /usr/lib/evolution/evolution-source-registry    PID: 2562    File: /home/denis/.local/share/gvfs-metadata/home
+         Process: /usr/bin/nautilus-desktop    PID: 2854    File: /home/denis/.local/share/gvfs-metadata/home
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3034    File: /home/denis/snap/chromium/common/chromium/BrowserMetrics/BrowserMetrics-5F1C0FB1-BDA.pma
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3213    File: /dev/shm/.org.chromium.Chromium.PsELlq
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3218    File: /dev/shm/.org.chromium.Chromium.fKb26O
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3276    File: /dev/shm/.org.chromium.Chromium.fOuEbg
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3314    File: /dev/shm/.org.chromium.Chromium.TJM25X
+         Process: /usr/bin/sudo    PID: 3436    File: /home/denis/IdeaProjects/server-management/src/main/resources/results/checkRootKit.txt
+         Process: /bin/dash    PID: 3437    File: /home/denis/IdeaProjects/server-management/src/main/resources/results/checkRootKit.txt
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3580    File: /dev/shm/.org.chromium.Chromium.Jw2PLl
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3604    File: /dev/shm/.org.chromium.Chromium.HqZB3M
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3618    File: /dev/shm/.org.chromium.Chromium.1a3v90
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3640    File: /dev/shm/.org.chromium.Chromium.lCrpze
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3687    File: /dev/shm/.org.chromium.Chromium.tr2mY1
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3688    File: /dev/shm/.org.chromium.Chromium.zvSAmc
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3699    File: /dev/shm/.org.chromium.Chromium.F5NL6D
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3716    File: /dev/shm/.org.chromium.Chromium.xmNUCy
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3728    File: /dev/shm/.org.chromium.Chromium.LtCjeu
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3753    File: /dev/shm/.org.chromium.Chromium.ZL4nad
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3816    File: /dev/shm/.org.chromium.Chromium.v6qi5Z
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3840    File: /dev/shm/.org.chromium.Chromium.bZll2g
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3852    File: /dev/shm/.org.chromium.Chromium.dqOpZV
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3865    File: /dev/shm/.org.chromium.Chromium.jpy1u9
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3887    File: /dev/shm/.org.chromium.Chromium.3TxX1Z
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3949    File: /dev/shm/.org.chromium.Chromium.Rt95qX
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3961    File: /dev/shm/.org.chromium.Chromium.Ruxq5e
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 3972    File: /dev/shm/.org.chromium.Chromium.pzNR6e
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 4046    File: /dev/shm/.org.chromium.Chromium.FzuI0w
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 4793    File: /dev/shm/.org.chromium.Chromium.LCvX0z
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 7532    File: /dev/shm/.org.chromium.Chromium.vf7B6Z
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 8181    File: /dev/shm/.org.chromium.Chromium.bRd9Nt
+         Process: /usr/bin/sudo    PID: 9153    File: /home/denis/IdeaProjects/server-management/src/main/resources/results/checkRootKit.txt
+         Process: /bin/dash    PID: 9154    File: /home/denis/IdeaProjects/server-management/src/main/resources/results/checkRootKit.txt
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 29998    File: /dev/shm/.org.chromium.Chromium.R7G88k
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 30009    File: /dev/shm/.org.chromium.Chromium.XuaxxQ
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 30020    File: /dev/shm/.org.chromium.Chromium.nWTjEa
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 30043    File: /dev/shm/.org.chromium.Chromium.5bXgJr
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 30072    File: /dev/shm/.org.chromium.Chromium.hbRD6W
+         Process: /snap/discord/109/usr/share/discord/Discord    PID: 30275    File: /dev/shm/.org.chromium.Chromium.IpXo46
+         Process: /snap/discord/109/usr/share/discord/Discord    PID: 30393    File: /dev/shm/.org.chromium.Chromium.XLK6ko
+         Process: /snap/discord/109/usr/share/discord/Discord    PID: 30399    File: /dev/shm/.org.chromium.Chromium.vkuJbV
+         Process: /snap/discord/109/usr/share/discord/Discord    PID: 30438    File: /dev/shm/.org.chromium.Chromium.RCD238
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 31438    File: /dev/shm/.org.chromium.Chromium.DqAAyi
+         Process: /snap/chromium/1229/usr/lib/chromium-browser/chrome    PID: 32107    File: /dev/shm/.org.chromium.Chromium.F3b7ru
+Warning: File '/tmp/hsperfdata_denis/32250' (score: 210) contains some suspicious content and should be checked.
+Warning: File '/tmp/hsperfdata_denis/8746' (score: 210) contains some suspicious content and should be checked.
+Warning: File '/tmp/hsperfdata_denis/8673' (score: 251) contains some suspicious content and should be checked.
+Warning: Checking for files with suspicious contents [ Warning ]
+Warning: Process '/sbin/wpa_supplicant' (PID 1182) is listening on the network.
+Warning: Process '/sbin/wpa_supplicant' (PID 1182) is listening on the network.
+Warning: Process '/sbin/dhclient' (PID 6107) is listening on the network.
+Warning: Suspicious file types found in /dev:
+         /dev/shm/PostgreSQL.1879779083: data
+Warning: Hidden directory found: /etc/.java
