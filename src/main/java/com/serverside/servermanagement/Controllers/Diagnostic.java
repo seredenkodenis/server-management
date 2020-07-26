@@ -40,7 +40,7 @@ public class Diagnostic {
             model.addAttribute("disk", disk);
             return "diagnosticDisk";
         }
-        return "redirect:/admin/diagnosticDisk";
+        return "redirect:/admin/diagnostic";
     }
 
     @RequestMapping(path = "/diagnostic/checkHacking", method = RequestMethod.GET)
@@ -57,16 +57,43 @@ public class Diagnostic {
                 .body(resource);
     }
 
+    @RequestMapping(path = "/diagnostic/getPartition", method = RequestMethod.GET)
+    public ResponseEntity<Resource> getPartition() throws IOException, InterruptedException {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command("bash","-c","ls /dev/sd* >> " + env.getProperty("pathToResults")+"partition.txt");
+        Process process = processBuilder.start();
+        process.waitFor();
+        File file = new File(env.getProperty("pathToResults")+"partition.txt");
+        InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
+        return ResponseEntity.ok()
+                .contentLength(file.length())
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .body(resource);
+    }
+
+    @RequestMapping(path = "/diagnostic/getHackCheck", method = RequestMethod.GET)
+    public ResponseEntity<Resource> getHackCheck() throws IOException, InterruptedException {
+        File file = new File(env.getProperty("pathToResults")+"checkRootKit.txt");
+        InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
+        return ResponseEntity.ok()
+                .contentLength(file.length())
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .body(resource);
+    }
+
     @GetMapping("/diagnostic/setDisk")
-    public String seterDisk(){
+    public String seterDisk(@RequestParam String partition){
         List<Disk> diskList = diskRepo.findAll();
+        System.out.println("kek");
         if(diskList.size() == 0) {
             ProcessBuilder processBuilder = new ProcessBuilder();
-            processBuilder.command("bash", "-c", env.getProperty("pathToScripts") + "setDisk.sh " + env.getProperty("sudoPass"));
+            processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "setDisk.sh " + env.getProperty("sudoPass") + " " + partition);
+            System.out.println(env.getProperty("pathToScripts") + "setDisk.sh " + env.getProperty("sudoPass") + " " + partition);
             try {
-                processBuilder.start();
+                Process process = processBuilder.start();
+                process.waitFor();
                 System.out.println("GONE");
-            } catch (IOException e) {
+            } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
         }
@@ -75,13 +102,13 @@ public class Diagnostic {
 
 
 
-    @GetMapping("/diagnostic/diskChecker/{report}")
-    public String diagnosticDisk(@PathVariable("report") Integer report) throws InterruptedException, IOException {
+    @GetMapping("/diagnostic/diskChecker")
+    public String diagnosticDisk(@RequestParam("partition") String partition,@RequestParam("type") Integer type) throws InterruptedException, IOException {
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "checkDisk.sh " + env.getProperty("sudoPass"));
+        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "checkDisk.sh " + env.getProperty("sudoPass") + " " + partition);
         Process process = processBuilder.start();
         process.waitFor();
-        if(report == 1){
+        if(type == 1){
             return "redirect:/admin/diagnostic/diskReport";
         }
         return "redirect:/admin/diagnostic";

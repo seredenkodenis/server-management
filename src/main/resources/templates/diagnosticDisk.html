@@ -13,8 +13,16 @@
 <body>
 <h1>Disk diagnostic</h1>
 <p>We will make badblocks search and smartctl</p>
-<a th:href="@{/admin/diagnostic/diskChecker/1}"><button type="button" class="btn btn-info">check and download</button></a>
-<a th:href="@{/admin/diagnostic/diskChecker/0}"><button type="button" class="btn btn-info">check</button></a>
+<form th:action="@{/admin/diagnostic/diskChecker}" th:method="GET">
+    <input name="partition"value="partition">
+    <input name="type" value="type 1">
+    <button type="submit" class="btn btn-primary">check and download</button>
+</form>
+<form th:action="@{/admin/diagnostic/diskChecker}" th:method="GET">
+    <input name="partition" value="partition">
+    <input name="type" value="type 0">
+    <button type="submit" class="btn btn-primary">check</button>
+</form>
 <table class="table table-dark">
     <thead>
     <tr>

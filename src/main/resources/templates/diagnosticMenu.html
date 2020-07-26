@@ -13,11 +13,18 @@
 <body>
 <h1>Disk diagnostic</h1>
 <p>We will make badblocks search and smartctl</p>
+<a th:href="@{/admin/diagnostic/getPartition}"><button type="button" class="btn btn-success">Info about partition</button></a>
+<form th:action="@{/admin/diagnostic/setDisk}" th:method="GET">
+    <input name="partition" value="partition">
+    <button type="submit" class="btn btn-primary">set disk</button>
+</form>
 <a th:href="@{/admin/diagnosticDisk}"><button type="button" class="btn btn-success">Check disk</button></a>
-<a th:href="@{/admin/diagnostic/setDisk}"><button type="button" class="btn btn-primary">Set disk</button></a>
+
 
 <h1>Check machine for hacking</h1>
+<p>You have to wait until the file will be downloaded(it can take a long time <30 min)</p>
 <a th:href="@{/admin/diagnostic/checkHacking}"><button type="button" class="btn btn-primary">Check machine</button></a>
+<a th:href="@{/admin/diagnostic/getHackCheck}"><button type="button" class="btn-success">Get file</button></a>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
