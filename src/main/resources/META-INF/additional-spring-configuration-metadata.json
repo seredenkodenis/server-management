@@ -34,5 +34,10 @@
       "name": "pathToResults",
       "type": "java.lang.String",
       "description": "Description for pathToResults."
+    },
+    {
+      "name": "pathToResources",
+      "type": "java.lang.String",
+      "description": "pathToResources"
     }
   ] }

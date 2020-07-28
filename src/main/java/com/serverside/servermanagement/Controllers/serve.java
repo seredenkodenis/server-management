@@ -78,7 +78,7 @@ public class serve {
     @RequestMapping(path = "/findAllServices", method = RequestMethod.GET)
     public ResponseEntity<Resource>  allServicesAtComputer() throws IOException, InterruptedException {
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "allServices.sh");
+        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "allServices.sh " + env.getProperty("pathToResults") + "/allServices.txt");
         Process process = processBuilder.start();
         process.waitFor();
         File file = new File(env.getProperty("pathToResults")+"allServices.txt");
@@ -91,7 +91,7 @@ public class serve {
     @RequestMapping(path = "/checkAllServicesErrors", method = RequestMethod.GET)
     public ResponseEntity<Resource>  checkServicesErrors() throws IOException, InterruptedException {
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "failedServices.sh");
+        processBuilder.command("bash","-c",env.getProperty("pathToScripts") + "failedServices.sh " + env.getProperty("pathToResults") + "/failedServices.txt");
         Process process = processBuilder.start();
         process.waitFor();
         File file = new File(env.getProperty("pathToResults")+"failedServices.txt");

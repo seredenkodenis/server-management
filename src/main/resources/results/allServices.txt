@@ -2,7 +2,7 @@
  [ - ]  alsa-utils
  [ - ]  anacron
  [ + ]  apache-htcacheclean
- [ - ]  apache2
+ [ + ]  apache2
  [ + ]  apparmor
  [ + ]  apport
  [ + ]  avahi-daemon
