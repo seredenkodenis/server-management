@@ -11,13 +11,14 @@
     <title>Disk</title>
 </head>
 <body>
+
+
 <h1>Disk diagnostic</h1>
 <p>We will make badblocks search and smartctl</p>
 <a th:href="@{/admin/diagnostic/getPartition}"><button type="button" class="btn btn-success">Info about partition</button></a>
-<form th:action="@{/admin/diagnostic/setDisk}" th:method="GET">
-    <input name="partition" value="partition">
-    <button type="submit" class="btn btn-primary">set disk</button>
-</form>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Set disk
+</button>
 <a th:href="@{/admin/diagnosticDisk}"><button type="button" class="btn btn-success">Check disk</button></a>
 
 
@@ -25,6 +26,34 @@
 <p>You have to wait until the file will be downloaded(it can take a long time <30 min)</p>
 <a th:href="@{/admin/diagnostic/checkHacking}"><button type="button" class="btn btn-primary">Check machine</button></a>
 <a th:href="@{/admin/diagnostic/getHackCheck}"><button type="button" class="btn-success">Get file</button></a>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form th:action="@{/admin/diagnostic/setDisk}" th:method="GET">
+                    <div class="form-group">
+                        <label>Enter partition of disk</label>
+                        <input name="partition" value="partition">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Set disk</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
