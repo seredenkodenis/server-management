@@ -67,10 +67,18 @@ public class ProcessService {
     public void setLog(Proc proc){
         Log log = new Log();
         Date date = new Date();
-        System.out.println("DONE!");
         log.setDate(date);
         log.setName("checked");
         log.setDescription("process check is done!");
+        log.setProcess(proc);
+        logRepo.save(log);
+    }
+    public void setLogDead(Proc proc){
+        Log log = new Log();
+        Date date = new Date();
+        log.setDate(date);
+        log.setName("dead");
+        log.setDescription("process check is dead");
         log.setProcess(proc);
         logRepo.save(log);
     }

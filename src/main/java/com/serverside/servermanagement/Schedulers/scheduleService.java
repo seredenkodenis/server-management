@@ -39,6 +39,8 @@ public class scheduleService {
                     mailer.serviceIsDead("Service is dead!",serviceList.get(i).getName());
                     service.setEmail(null);
                     serviceRepo.save(service);
+                    serviceService.setLogDead(serviceList.get(i));
+                    continue;
             }
             serviceService.setLog(serviceList.get(i));
         }

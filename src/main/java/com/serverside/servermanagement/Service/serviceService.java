@@ -69,11 +69,19 @@ public class serviceService {
 
     public void setLog(com.serverside.servermanagement.Entitiy.Service service){
         LogServices logServices = new LogServices();
-        System.out.println("DONE!");
         Date date = new Date();
         logServices.setDate(date);
         logServices.setName("checked");
-        logServices.setDescription("process check is done!");
+        logServices.setDescription("service check is done!");
+        logServices.setService(service);
+        logServiceRepo.save(logServices);
+    }
+    public void setLogDead(com.serverside.servermanagement.Entitiy.Service service){
+        LogServices logServices = new LogServices();
+        Date date = new Date();
+        logServices.setDate(date);
+        logServices.setName("dead");
+        logServices.setDescription("service is dead!");
         logServices.setService(service);
         logServiceRepo.save(logServices);
     }

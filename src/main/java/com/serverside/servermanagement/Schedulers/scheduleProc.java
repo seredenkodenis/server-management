@@ -40,6 +40,8 @@ public class scheduleProc {
                     mailer.processIsDead("Process is dead",procList.get(i).getPid());
                     proc.setEmail(null);
                     processRepo.save(proc);
+                    processService.setLogDead(procList.get(i));
+                    continue;
                 }
             }
             processService.setLog(procList.get(i));
