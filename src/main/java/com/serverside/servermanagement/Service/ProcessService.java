@@ -1,6 +1,8 @@
 package com.serverside.servermanagement.Service;
 
+import com.serverside.servermanagement.Entitiy.Log;
 import com.serverside.servermanagement.Entitiy.Proc;
+import com.serverside.servermanagement.Repos.LogRepo;
 import com.serverside.servermanagement.Repos.ProcessRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -9,10 +11,13 @@ import org.springframework.stereotype.Service;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Service
 public class ProcessService {
     @Autowired
-    private ProcessRepo processRepo;
+    private LogRepo logRepo;
 
     @Autowired
     private Environment env;
@@ -58,5 +63,15 @@ public class ProcessService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void setLog(Proc proc){
+        Log log = new Log();
+        Date date = new Date();
+        System.out.println("DONE!");
+        log.setDate(date);
+        log.setName("checked");
+        log.setDescription("process check is done!");
+        log.setProcess(proc);
+        logRepo.save(log);
     }
 }

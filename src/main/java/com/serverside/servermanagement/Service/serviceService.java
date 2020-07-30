@@ -1,16 +1,24 @@
 package com.serverside.servermanagement.Service;
 
+import com.serverside.servermanagement.Entitiy.Log;
+import com.serverside.servermanagement.Entitiy.LogServices;
+import com.serverside.servermanagement.Entitiy.Proc;
+import com.serverside.servermanagement.Repos.LogServiceRepo;
 import com.serverside.servermanagement.Repos.ServiceRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.Date;
 
 @Service
 public class serviceService {
     @Autowired
     private ServiceRepo serviceRepo;
+
+    @Autowired
+    private LogServiceRepo logServiceRepo;
     @Autowired
     private Environment env;
 
@@ -57,6 +65,17 @@ public class serviceService {
 
     public void deleteService(com.serverside.servermanagement.Entitiy.Service service){
          serviceRepo.delete(service);
+    }
+
+    public void setLog(com.serverside.servermanagement.Entitiy.Service service){
+        LogServices logServices = new LogServices();
+        System.out.println("DONE!");
+        Date date = new Date();
+        logServices.setDate(date);
+        logServices.setName("checked");
+        logServices.setDescription("process check is done!");
+        logServices.setService(service);
+        logServiceRepo.save(logServices);
     }
 
 

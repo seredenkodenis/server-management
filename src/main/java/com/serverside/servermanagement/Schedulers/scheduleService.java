@@ -2,6 +2,8 @@ package com.serverside.servermanagement.Schedulers;
 
 import com.serverside.servermanagement.Entitiy.Service;
 import com.serverside.servermanagement.Repos.ServiceRepo;
+import com.serverside.servermanagement.Service.ProcessService;
+import com.serverside.servermanagement.Service.serviceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -13,6 +15,9 @@ import java.util.List;
 public class scheduleService {
     @Autowired
     private com.serverside.servermanagement.Mailer mailer;
+
+    @Autowired
+    private serviceService serviceService;
     @Autowired
     private ServiceRepo serviceRepo;
 
@@ -35,6 +40,7 @@ public class scheduleService {
                     service.setEmail(null);
                     serviceRepo.save(service);
             }
+            serviceService.setLog(serviceList.get(i));
         }
     }
 }

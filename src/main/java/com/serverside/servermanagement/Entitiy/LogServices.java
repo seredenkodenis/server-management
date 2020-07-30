@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Log {
+public class LogServices {
     @Id
     @GeneratedValue
     Integer id;
@@ -16,10 +16,18 @@ public class Log {
     Date date;
 
     @ManyToOne
-    @JoinColumn(name = "PROCESS_NAME")
-    Proc process;
+    @JoinColumn(name = "SERVICE_NAME")
+    Service service;
 
-    public Log() {
+    public LogServices() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -46,19 +54,11 @@ public class Log {
         this.date = date;
     }
 
-    public Integer getId() {
-        return id;
+    public Service getService() {
+        return service;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Proc getProcess() {
-        return process;
-    }
-
-    public void setProcess(Proc process) {
-        this.process = process;
+    public void setService(Service service) {
+        this.service = service;
     }
 }

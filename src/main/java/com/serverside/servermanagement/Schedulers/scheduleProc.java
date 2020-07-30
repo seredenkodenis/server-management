@@ -42,6 +42,7 @@ public class scheduleProc {
                     processRepo.save(proc);
                 }
             }
+            processService.setLog(procList.get(i));
         }
     }
 }

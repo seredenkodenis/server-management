@@ -38,6 +38,7 @@ public class Admin {
         List<Proc> procList = (List<Proc>) processRepo.findAll();
         for(int i = 0; i< procList.size();++i){
             processService.refresh(procList.get(i));
+            processService.setLog(procList.get(i));
         }
         Iterable<Proc> procs = processRepo.findAll();
         model.addAttribute("processes", procs);

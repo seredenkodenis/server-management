@@ -1,12 +1,12 @@
 package com.serverside.servermanagement.Entitiy;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Service {
     @Id
+    @Column(name = "S_NAME")
     String name;
 
     @Column
@@ -22,6 +22,9 @@ public class Service {
     String status;
     @Column
     String email;
+
+    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<LogServices> logs;
 
     public Service() {
     }
@@ -72,5 +75,13 @@ public class Service {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<LogServices> getLogs() {
+        return logs;
+    }
+
+    public void setLogs(List<LogServices> logs) {
+        this.logs = logs;
     }
 }
