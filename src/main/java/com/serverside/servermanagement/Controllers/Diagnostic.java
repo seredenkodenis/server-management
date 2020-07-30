@@ -131,4 +131,13 @@ public class Diagnostic {
                 .contentType(MediaType.APPLICATION_OCTET_STREAM)
                 .body(resource);
     }
+    @RequestMapping(path = "/diagnostic/logFile", method = RequestMethod.GET)
+    public ResponseEntity<Resource> logFile() throws IOException, InterruptedException {
+        File file = new File(env.getProperty("pathToResults")+"app.log");
+        InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
+        return ResponseEntity.ok()
+                .contentLength(file.length())
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .body(resource);
+    }
 }
